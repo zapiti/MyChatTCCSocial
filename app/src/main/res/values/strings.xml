@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Report Life</string>
+    <string name="need_a_new_account">NEED A NEW ACCOUNT ?</string>
+    <string name="create_account">CREATE ACCOUNT</string>
+    <string name="email">Email</string>
+    <string name="name">Name</string>
+    <string name="password">Password</string>
+    <string name="regProgressDialog">oi</string>
+    <string name="regiTituloProgressDialog">euaqui</string>
+    <string name="mainToolbarTitle">Chat</string>
+    <string name="log_out">Log Out</string>
+    <string name="all_users">All Users</string>
+    <string name="account_settings">Account Settings</string>
+    <string name="regisToolbarTitle">Create Account</string>
+    <string name="create_a_new_account">Create a New Account</string>
+    <string name="already_have_account">ALREADY HAVE ACCOUNT</string>
+    <string name="login">Login</string>
+    <string name="login_to_your_account">Login to your account</string>
+    <string name="regis_error_registre">Cannot Sign in .Please check the form and try again!</string>
+    <string name="logging_in">Logging In</string>
+    <string name="logging_check_msg">Please wait while we check your credentials!</string>
+    <string name="login_error">Cannot Login in. Please check the form and try again</string>
+</resources>

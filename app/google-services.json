@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1059661413850",
+    "firebase_url": "https://tccfirebaseproject-14828.firebaseio.com",
+    "project_id": "tccfirebaseproject-14828",
+    "storage_bucket": "tccfirebaseproject-14828.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1059661413850:android:e9decd23d7bafdec",
+        "android_client_info": {
+          "package_name": "com.dev.nathan.reportlife"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1059661413850-jdjl0ug9jccs3305as1r9r48in2vqtb5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dev.nathan.reportlife",
+            "certificate_hash": "337155a300f5e30c244d44301895e434c93af473"
+          }
+        },
+        {
+          "client_id": "1059661413850-td820bmq937p6vgprbqp1labv6f6lv1q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwyW0E2UxLocvoQ6OcUyhgBWR1lOerOzU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1059661413850-td820bmq937p6vgprbqp1labv6f6lv1q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
