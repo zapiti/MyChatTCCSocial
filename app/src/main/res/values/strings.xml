@@ -20,4 +20,8 @@
     <string name="logging_in">Logging In</string>
     <string name="logging_check_msg">Please wait while we check your credentials!</string>
     <string name="login_error">Cannot Login in. Please check the form and try again</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="page_friends_bem_vindo">Page Friends Bem vindo</string>
 </resources>
