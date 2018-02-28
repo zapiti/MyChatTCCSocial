@@ -24,4 +24,13 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="page_friends_bem_vindo">Page Friends Bem vindo</string>
+    <string name="display_name">Display Name</string>
+    <string name="default_status">title display name</string>
+    <string name="change_image">Change Image</string>
+    <string name="change_status">Change Status</string>
+    <string name="account_status">Account Status</string>
+    <string name="save_changes">save changes</string>
+    <string name="saving_changes">Saving Changes</string>
+    <string name="mensage_save_changes">Please wait while we save the changes</string>
+    <string name="selectImage">SELECT IMAGE</string>
 </resources>
