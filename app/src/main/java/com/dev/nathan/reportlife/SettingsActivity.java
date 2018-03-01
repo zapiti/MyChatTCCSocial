@@ -1,5 +1,6 @@
 package com.dev.nathan.reportlife;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
@@ -22,10 +23,9 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 import com.theartofdev.edmodo.cropper.CropImage;
-import com.theartofdev.edmodo.cropper.CropImageView;
 
-import java.net.URI;
 import java.util.Random;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -44,10 +44,13 @@ public class SettingsActivity extends AppCompatActivity {
     private Button mStatusbtn;
     private Button mImagebtn;
 
+    private ProgressDialog mSettingsProgressDialog;
+
     private static final int GALLERY_PICK = 1;
 
     //Storage Firebase
     private StorageReference mImageStorage;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +83,7 @@ public class SettingsActivity extends AppCompatActivity {
 
                 mName.setText(name);
                 mStatus.setText(status);
+                Picasso.with(SettingsActivity.this).load(image).into(mDisplayImage);
 
 
             }
@@ -144,17 +148,37 @@ public class SettingsActivity extends AppCompatActivity {
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
             if (resultCode == RESULT_OK) {
 
+                mSettingsProgressDialog = new ProgressDialog(SettingsActivity.this);
+                mSettingsProgressDialog.setTitle(getString(R.string.uploadingImage));
+                mSettingsProgressDialog.setMessage(getString(R.string.title_progress_upload_image));
+                mSettingsProgressDialog.setCanceledOnTouchOutside(false);
+                mSettingsProgressDialog.show();
+
                 Uri resultUri = result.getUri();
 
-                StorageReference filepath = mImageStorage.child("profile_images").child(random() + ".jpg");
+                String current_user_id = mCurrentUser.getUid();
+
+                StorageReference filepath = mImageStorage.child("profile_images").child(current_user_id + ".jpg");
 
                 filepath.putFile(resultUri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(SettingsActivity.this, "working", Toast.LENGTH_LONG).show();
+                          String download_url = task.getResult().getDownloadUrl().toString();
+                          mUserDatabase.child("image").setValue(download_url).addOnCompleteListener(new OnCompleteListener<Void>() {
+                              @Override
+                              public void onComplete(@NonNull Task<Void> task) {
+                                  if(task.isSuccessful()){
+                                      mSettingsProgressDialog.dismiss();
+                                      Toast.makeText(SettingsActivity.this, "sucesso", Toast.LENGTH_LONG).show();
+                                  }
+                              }
+                          });
+
+
                         } else {
                             Toast.makeText(SettingsActivity.this, "falure", Toast.LENGTH_LONG).show();
+                            mSettingsProgressDialog.dismiss();
                         }
                     }
                 });

@@ -9,7 +9,7 @@
     <string name="regiTituloProgressDialog">euaqui</string>
     <string name="mainToolbarTitle">Chat</string>
     <string name="log_out">Log Out</string>
-    <string name="all_users">All Users</string>
+    <string name="all_users_title">All Users</string>
     <string name="account_settings">Account Settings</string>
     <string name="regisToolbarTitle">Create Account</string>
     <string name="create_a_new_account">Create a New Account</string>
@@ -33,4 +33,7 @@
     <string name="saving_changes">Saving Changes</string>
     <string name="mensage_save_changes">Please wait while we save the changes</string>
     <string name="selectImage">SELECT IMAGE</string>
+    <string name="uploadingImage">Uploading Image...</string>
+    <string name="title_progress_upload_image">Please wait while we upload and process the image.</string>
+
 </resources>

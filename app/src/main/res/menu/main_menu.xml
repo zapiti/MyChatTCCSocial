@@ -6,7 +6,7 @@
         android:id="@+id/main_settings_btn"/>
     <item
         android:id="@+id/main_all_user_btn"
-        android:title="@string/all_users" />
+        android:title="@string/all_users_title" />
     <item
         android:id="@+id/main_logout_btn"
         android:title="@string/log_out" />
