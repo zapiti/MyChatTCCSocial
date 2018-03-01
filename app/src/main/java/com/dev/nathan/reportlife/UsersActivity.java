@@ -1,5 +1,7 @@
 package com.dev.nathan.reportlife;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,6 +16,9 @@ import com.dev.nathan.reportlife.model.Users;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.squareup.picasso.Picasso;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class UsersActivity extends AppCompatActivity {
@@ -36,7 +41,7 @@ public class UsersActivity extends AppCompatActivity {
         mUserDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
 
         setSupportActionBar(mToolbar);
-        getSupportActionBar().setTitle("All Users");
+        getSupportActionBar().setTitle(getString(R.string.all_users_title));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
@@ -55,7 +60,20 @@ public class UsersActivity extends AppCompatActivity {
 
 
                 viewHolder.setName(model.getName());
+                viewHolder.setUsersStatus(model.getStatus());
+                viewHolder.setUserImage(model.getThumb_image(),getApplicationContext());
 
+                final String user_id = getRef(position).getKey();
+
+                viewHolder.mView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        Intent intentProfile =  new Intent(UsersActivity.this,ProfileActivity.class);
+                        intentProfile.putExtra("user_id",user_id);
+                        startActivity(intentProfile);
+                    }
+                });
             }
         };
 
@@ -85,5 +103,18 @@ public class UsersActivity extends AppCompatActivity {
         }
 
 
+        public void setUsersStatus(String status) {
+
+            TextView userStatusView = mView.findViewById(R.id.users_single_status);
+            userStatusView.setText(status);
+        }
+
+        public void setUserImage(String thumb_image, Context ctx) {
+
+            CircleImageView userImageView = mView.findViewById(R.id.user_single_image);
+
+            Picasso.with(ctx).load(thumb_image).placeholder(R.mipmap.ic_person_round).into(userImageView);
+
+        }
     }
 }

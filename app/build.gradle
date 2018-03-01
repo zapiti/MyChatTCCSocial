@@ -2,8 +2,8 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 27
-    buildToolsVersion '27.0.3'
-   // multiDexEnabled true
+    buildToolsVersion '27.0.1'
+    // multiDexEnabled true
     defaultConfig {
 
         applicationId "com.dev.nathan.reportlife"
@@ -48,9 +48,13 @@ dependencies {
     // FirebaseUI for Firebase Realtime Database
 
     implementation 'com.firebaseui:firebase-ui-database:1.2.0'
-   // compile 'com.android.support:multidex:1.0.1'
+    // https://github.com/Tourenathan-G5organisation/SiliCompressor mimificar image
+
+    //  implementation 'com.iceteck.silicompressorr:silicompressor:2.0'
+    implementation 'id.zelory:compressor:2.0.0'
 
 }
+
 
 
 
